@@ -15,8 +15,32 @@
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+        <mat-card-content class="dashboard-card-content" *ngIf="card.id === 'brg'">
+          <div>Contenu propre aux Burgers</div>
+          <p *ngFor="let burger of burgers">
+            <span>{{burger.title}}</span>
+            <span>{{burger.description}} </span>
+            <span class="price">{{burger.price | currency: 'EUR'}}</span>
+            <mat-divider></mat-divider>
+          </p>
+        </mat-card-content>
+        <mat-card-content class="dashboard-card-content" *ngIf="card.id === 'glt'">
+          <div>Contenu propre aux galettes</div>
+          <p *ngFor="let pizza of pizzas">
+            <span>{{pizza.title}}</span>
+            <span>{{pizza.description}} </span>
+            <span class="price">{{pizza.price | currency: 'EUR'}}</span>
+            <mat-divider></mat-divider>
+          </p>
+        </mat-card-content>
+        <mat-card-content class="dashboard-card-content" *ngIf="card.id === 'pzz'">
+          <div>Contenu propre aux pizzas</div>
+          <p *ngFor="let galette of galettes">
+            <span>{{galette.title}}</span>
+            <span>{{galette.description}} </span>
+            <span class="price">{{galette.price | currency: 'EUR'}}</span>
+            <mat-divider></mat-divider>
+          </p>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
